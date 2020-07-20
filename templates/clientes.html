@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+
+{% block containClientes %}
+
+<h1 class="center-text">Clientes</h1>
+
+<div class="clien-con all-clients">
+
+    {% for cliente in clientes %}    
+        <div class="cliente">
+            <div class="img-clien">
+                <img src="{{url_for('static', filename = cliente.5)}}" alt="Imagen cliente">
+            </div>
+
+            <div class="info-client">
+                <p> <spam>Nombre  </spam>{{cliente.2}}</p>
+                <p> <spam>CC  </spam>{{cliente.1}}</p>
+                <p> <spam>Dirección  </spam>{{cliente.3}}</p>
+                <p> <spam>Teléfono  </spam>{{cliente.4}}</p>
+                <p> <spam>Compras:  </spam>{{cliente.6}}</p>
+                <div class="buttons">
+                    <a href="/compra/{{cliente.0}}"><i class="fas fa-cash-register"></i></a>
+                    <a href="/edit/{{cliente.0}}"><i class="fas fa-edit"></i></a>
+                    <a href="/delete/{{cliente.0}}"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

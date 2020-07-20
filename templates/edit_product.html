@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+
+{% block containProducts %}
+
+<h1 class="center-text">Edita {{producto.2}}</h1>
+<p class=" center-text"> En este espacio se puede editar el producto elegido </p>
+
+<div class="creador-clien">
+    
+    <h3 class="center-text"><span>Registro de produtos</span></h3>
+
+    <form action="/update_product/{{producto.0}}" method="POST">
+
+        <div class="container-form">
+            <div class="input-re">
+                <p><span>Nombre:</span></p>
+                <input type="text" name="nombre" placeholder="{{producto.2}}" class="input-contact">
+            </div>
+
+            <div class="input-re">
+                <p><span>Categoría</span></p>
+                <input type="text" name="categoria" placeholder="{{producto.1}}" class="input-contact">
+            </div>
+
+            
+            <div class="input-re">
+                <p><span>Precio:</span></p>
+                <input type="text" name="precio" placeholder="{{producto.3}}" class="input-contact">
+            </div>
+
+            <div class="input-re">
+                <p><span>Cantidad en bodega</span></p>
+                <input type="text" name="cantidadBodega" placeholder="{{producto.4}}" class="input-contact">
+            </div>
+            
+            <div class="input-re">
+                <p><span>Foto</span></p>
+                <input type="text" name="foto_producto" placeholder="{{producto.6}}" class="input-contact">
+            </div>
+
+        </div>
+        
+        <div class="input-re">
+            <button type="submit" class="btn">
+                <i class="far fa-plus-square"></i>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

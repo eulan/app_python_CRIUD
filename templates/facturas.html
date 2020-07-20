@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block containFacturas %}
+
+
+<div class="clien-con all-clients">
+
+    {% for i in facturas %}    
+        <div class="cliente">
+            <div class="img-clien">
+                <img src="{{url_for('static', filename = facturas[i]['foto'])}}" alt="Imagen cliente">
+            </div>
+
+            <div class="info-client">
+                <p> <spam>Nombre  </spam>{{facturas[i]['nombre']}}</p>
+                <p> <spam>CC  </spam>{{facturas[i]['cedula']}}</p>
+                <p> <spam>Compras:  </spam>{{facturas[i]['compras']}}</p>
+
+                <div class="con-pago">
+
+                    {% for compra in facturas[i]['facturas'] %}
+
+                        <div id="factura">
+
+                            <h2 class="center-text">Factura</h2>
+
+                            <div class="personal-data">
+                                <p> <span>Fecha: </span> {{compra[0]['fecha']}} </p>
+                                <p> <span>Nombre: </span> {{compra[0]['nombre']}} </p>
+                                <p> <span>ID: </span> {{compra[0]['cedula']}} </p>
+                            </div>
+        
+                            <div class="contenedor-tabla">
+                                <table id="listado-productos" class="listado-productos">
+        
+                                    <thead>
+                                        <tr>
+                                            <th><span>Producto</span></th>
+                                            <th> <span> Valor Unidad</span></th>
+                                            <th><span> Cantidad</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for table in compra[0]['compras'] %}
+                                            <tr>
+                                                <td>{{table['nombre']}}</td>
+                                                <td>{{table['precio']}}</td>
+                                                <td>{{table['cantidad']}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table> 
+                            </div>
+
+        
+                            <div class="final-fact">
+                                <p> <span>Total pagado</span> {{compra[0]['valorTotal']}} </p>
+                                <p><span>Metodo de pago</span> {{compra[0]['payMethod']}} </p>
+                            </div>
+                        
+                            <div class="buttons center-text">
+                                <a href="/edit_factura/{{compra[0]['id_factura']}}"><i class="fas fa-edit"></i></a>
+                                <a href="/delete_factura/{{compra[0]['id_factura']}}"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+
+                        </div>
+                    
+                    {% endfor %}
+
+                </div>
+    
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

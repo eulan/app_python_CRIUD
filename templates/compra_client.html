@@ -1,0 +1,143 @@
+{% extends "base.html"%}
+
+{% block containFacturas %}
+
+<div class="compra-clien">
+        
+    <h1 class="center-text">Compra de <span>{{cliente.2}}</span></h1>
+
+    <form id="formulario_compra_cliente" action="/gen_factura/{{cliente.0}}" method="POST">
+
+        <div class="con-categorias-serch">
+            <h2>Seleciona tus categorías</h2>
+
+            <div class="categories-sercher">
+                {% for i in range(0, lon) %}
+                <div class="categoria">
+                    <label><span>{{categoria[i]}}</span></label>
+                    <input type="checkbox" name="categoria_{{categoria[i].replace(' ', '-')}}" id="{{categoria[i].replace(' ', '-')}}" value="{{categoria[i].replace(' ', '-')}}">
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        
+
+        <div class="producto-avi">
+            {% for product in productos %}
+                {% if product.5 != 0 %}    
+                    <div class="producto" id="{{product.1.replace(' ', '-')  }}">
+                        <div class="img-product">
+                            <img src="{{url_for('static', filename = product.6)}}" alt="Imagen producto">
+                        </div>
+        
+                        <div class="info-product">
+                            <p> Nombre: <span>{{product.2}}</span></p>
+                            <p> Categoría:  <spam>{{product.1}}</spam></p>
+                            <p> Precio:  <spam>{{product.3}}</spam></p>
+                            <p> Cantidad en bodega:  <spam>{{product.4}}</spam></p>
+                            <p> Estado:  <spam>{{"Disponible" if product.5 == 1 else "Agotado" }}</spam></p>
+
+                            <div class="orden">
+                                <label for="{{product.1}}"> <spam>Producto deseado deseados</spam></label>
+                                <input type="number" min="0" name = "{{product.1}}_{{product.0}}" max = "{{product.4}}" id="{{product.1}}_input" size="3" placeholder="0">
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+
+
+        <div class="con-categorias-serch">
+            <h2>Método de Pago</h2>
+
+            <div class="categories-sercher">
+                {% for i in range(0, lonpay) %}
+                <div class="paymethods">
+                    <label><span>{{paymethods[i]}}</span></label>
+                    <input type="checkbox" name="categoria_{{paymethods[i].replace(' ', '-')}}" id="{{paymethods[i].replace(' ', '-')}}" value="{{paymethods[i].replace(' ', '-')}}">
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>        
+
+
+
+
+
+
+
+
+
+        <div class="section-pago">
+
+            <div class="con-pago">
+                <div class="infoma">
+                    <h2 class="center-text" > Total a pagar</h2>
+                    <p>Para verificar tu compra da click al siguiente botón</p>
+                    <a href="#" class="btn" id="total">Calcular total a pagar</a>
+                </div>
+
+            </div>
+
+            <div class="con-pago">
+
+                <div class="total" id="factura">
+
+                    <div class="personal-data">
+                    </div>
+
+                    <p><span>Cedula de ciudadania:</span>{{cliente.1}}</p>
+
+                    <div class="contenedor-tabla">
+                        <table id="listado-productos" class="listado-productos">
+
+                            <thead>
+                                <tr>
+                                    <th><span>Producto</span></th>
+                                    <th> <span> Valor Unidad</span></th>
+                                    <th><span> Cantidad</span></th>
+                                    <th><span> Total</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table> 
+                    </div>
+
+                    <div class="final-fact">
+                    </div>
+                
+                </div>
+            </div>
+
+        </div>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div class="input-re">
+            <button type="submit" class="btn">
+                Construir factura
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

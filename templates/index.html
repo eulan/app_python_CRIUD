@@ -1,0 +1,159 @@
+{% extends "base.html"%}
+
+{% block containClientes %}
+
+    <h2 class="center-text">Clientes</h2>
+
+    <div class="creador-clien">
+        
+        <h3 class="center-text"><span>Registrar Clientes</span></h3>
+
+        <form action="/add_client" method="POST">
+
+            <div class="container-form">
+                <div class="input-re">
+                    <p><span>Nombre:</span></p>
+                    <input type="text" name="nombre" placeholder="Nombre completo" class="input-contact">
+                </div>
+    
+                <div class="input-re">
+                    <p><span>Cédula de ciudadanía:</span></p>
+                    <input type="text" name="cedula" placeholder="Cédula" class="input-contact">
+                </div>
+    
+                
+                <div class="input-re">
+                    <p><span>Dirección:</span></p>
+                    <input type="text" name="direccion" placeholder="Av 25 # 17 N-13" class="input-contact">
+                </div>
+    
+                <div class="input-re">
+                    <p><span>Teléfono</span></p>
+                    <input type="text" name="telefono" placeholder="Número de teléfono" class="input-contact">
+                </div>
+                
+                <div class="input-re">
+                    <p><span>Foto</span></p>
+                    <input type="text" name="foto" placeholder="Url de foto" class="input-contact">
+                </div>
+    
+            </div>
+            
+            <div class="input-re">
+                <button type="submit" class="btn">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="clien-con">
+
+        {% for cliente in clientes %}    
+            <div class="cliente">
+                <div class="img-clien">
+                    <img src="{{url_for('static', filename = cliente.5)}}" alt="Imagen cliente">
+                </div>
+
+                <div class="info-client">
+                    <p> <spam>Nombre  </spam>{{cliente.2}}</p>
+                    <p> <spam>CC  </spam>{{cliente.1}}</p>
+                    <p> <spam>Dirección  </spam>{{cliente.3}}</p>
+                    <p> <spam>Teléfono  </spam>{{cliente.4}}</p>
+                    <p> <spam>Compras:  </spam>{{cliente.6}}</p>
+                    <div class="buttons">
+                        <a href="/compra/{{cliente.0}}"><i class="fas fa-cash-register"></i></a>
+                        <a href="/edit/{{cliente.0}}"><i class="fas fa-edit"></i></a>
+                        <a href="/delete/{{cliente.0}}"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="btn btn-clients">
+        <a href="/clientes">Ver todos los clientes</a>
+    </div>
+{% endblock%}
+
+{% block containProducts %}
+
+    <h2 class="center-text">Registro de productos</h2>
+
+    <div class="creador-clien">
+        
+        <h3 class="center-text"><span>Registro de produtos</span></h3>
+
+        <form action="/add_product" method="POST">
+
+            <div class="container-form">
+                <div class="input-re">
+                    <p><span>Nombre:</span></p>
+                    <input type="text" name="nombre" placeholder="Nombre del producto" class="input-contact">
+                </div>
+    
+                <div class="input-re">
+                    <p><span>Categoría</span></p>
+                    <input type="text" name="categoria" placeholder="categoria producto" class="input-contact">
+                </div>
+    
+                
+                <div class="input-re">
+                    <p><span>Precio:</span></p>
+                    <input type="text" name="precio" placeholder="Precio en pesos" class="input-contact">
+                </div>
+    
+                <div class="input-re">
+                    <p><span>Cantidad en bodega</span></p>
+                    <input type="text" name="cantidadBodega" placeholder="Cantidad en bogeda" class="input-contact">
+                </div>
+                
+                <div class="input-re">
+                    <p><span>Foto</span></p>
+                    <input type="text" name="foto_producto" placeholder="Url de foto" class="input-contact">
+                </div>
+    
+            </div>
+            
+            <div class="input-re">
+                <button type="submit" class="btn">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="clien-con">
+
+        {% for product in products %}    
+            <div class="cliente">
+                <div class="img-clien">
+                    <img src="{{url_for('static', filename = product.6)}}" alt="Imagen producto">
+                </div>
+
+                <div class="info-client">
+                    <p> <spam>Nombre  </spam>{{product.2}}</p>
+                    <p> <spam>Categoría  </spam>{{product.1}}</p>
+                    <p> <spam>Precio  </spam>{{product.3}}</p>
+                    <p> <spam>Cantidad en bodega  </spam>{{product.4}}</p>
+                    <p> <spam>Estado  </spam>{{"Disponible" if product.5 == 1 else "Agotado" }}</p>
+                    <div class="buttons">
+                        <a href="/edit_product/{{product.0}}"><i class="fas fa-edit"></i></a>
+                        <a href="/delete_product/{{product.0}}"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="btn btn-clients">
+        <a href="/productos">Ver todos los productos</a>
+    </div>
+
+{% endblock %}

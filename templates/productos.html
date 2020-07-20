@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+
+{% block containProducts %}
+
+<h1 class="center-text">Productos</h1>
+
+<div class="clien-con">
+
+    {% for product in productos %}   
+        <div class="cliente">
+            <div class="img-clien">
+                <img src="{{url_for('static', filename = product.6)}}" alt="Imagen producto">
+            </div>
+
+            <div class="info-client">
+                <p> <spam>Nombre  </spam>{{product.2}}</p>
+                <p> <spam>Categoría  </spam>{{product.1}}</p>
+                <p> <spam>Precio  </spam>{{product.3}}</p>
+                <p> <spam>Cantidad en bodega  </spam>{{product.4}}</p>
+                <p> <spam>Estado  </spam>{{"Disponible" if product.5 == 1 else "Agotado" }}</p>
+                <div class="buttons">
+                    <a href="/edit_product/{{product.0}}"><i class="fas fa-edit"></i></a>
+                    <a href="/delete_product/{{product.0}}"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

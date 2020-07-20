@@ -1,0 +1,54 @@
+{% extends "base.html"%}
+
+{% block containClientes %}
+
+<h1 class="center-text">Clientes</h1>
+
+<p>En este espacio, puede actualizar el cliente seleccionado.</p>
+
+<div class="creador-clien">
+    
+    <h3 class="center-text"><span>Registrar Clientes</span></h3>
+
+    <form action="/update/{{cliente.0}}" method="POST">
+
+        <div class="container-form">
+            <div class="input-re">
+                <p><span>Nombre:</span></p>
+                <input type="text" name="nombre" placeholder={{cliente.2}} class="input-contact">
+            </div>
+
+            <div class="input-re">
+                <p><span>Cédula de ciudadanía:</span></p>
+                <input type="text" name="cedula" placeholder="{{cliente.1}}" class="input-contact">
+            </div>
+
+            
+            <div class="input-re">
+                <p><span>Dirección:</span></p>
+                <input type="text" name="direccion" placeholder="{{cliente.3}}" class="input-contact">
+            </div>
+
+            <div class="input-re">
+                <p><span>Teléfono</span></p>
+                <input type="text" name="telefono" placeholder="{{cliente.4}}" class="input-contact">
+            </div>
+            
+            <div class="input-re">
+                <p><span>Foto</span></p>
+                <input type="text" name="foto" placeholder="{{cliente.5}}" class="input-contact">
+            </div>
+
+        </div>
+        
+        <div class="input-re">
+            <button type="submit" class="btn">
+                <i class="far fa-plus-square"></i>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock containClientes %}

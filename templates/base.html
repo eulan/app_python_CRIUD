@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>App Facture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/normalize.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/styles.css')}}">
+</head>
+<body>
+
+    <header class="site-header aditionals">
+        <div class="container container-header">
+            <div class="barra">
+                
+                <div class="subbar">
+                    <!--Hamburger menu-->
+                    <a href="#" class="burmenu">
+                        <i class="fas fa-hamburger"></i>
+                    </a>
+                </div>
+    
+                <nav id="navegacion" class="navegacion">
+                    <a href="/">Home</a>
+                    <a href="/clientes">Clientes</a>
+                    <a href="/productos">Productos</a>
+                    <a href="/facturas">Facturas</a>
+                </nav>
+            </div> <!---Barra-->
+        </div> <!---Contenedor-->
+    </header>  
+    
+    <div class="section">
+        <div class="container">
+            {% block containClientes %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <div class="section">
+        <div class="container">
+            {% block containProducts %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            {% block containFacturas %}
+            {% endblock %}
+        </div>
+    </div>
+    
+    <p class="copyright">Todos los derechos reservados&copy;</p>
+    <script src="https://kit.fontawesome.com/fd56002a1d.js" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename ='js/main.js')}}"></script>
+
+</body>
+</html>

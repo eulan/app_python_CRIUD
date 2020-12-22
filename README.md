@@ -20,10 +20,10 @@
 
 <h1>Códificación Cesar</h1>
 
-<p>Finalmente, se realizó un programa que traduce un mensaje codificado tipo cesar, de tres formas:</p>
+<p>Finalmente, se realizó un programa que traduce un mensaje codificado tipo Cesar, de tres formas:</p>
 
 <ol>
     <li>Fuerza bruta: realiza sucesivamente muchas traslaciones hasta encontrar el correcto</li>
     <li>Google traslate: Se llama la API de google traslate para que esta clasifique, si la palabra esta en español o no.</li>
-    <li>ML: se hizó un modelo de ML  (arbol de desición) el cual puede distingir con cierta precisión si la frase esta bien decodificada o no.</li>
+    <li>ML: se hizó un modelo de ML  (arbol de decisión) el cual puede distingir con cierta precisión si la frase esta bien decodificada o no.</li>
 </ol>

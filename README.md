@@ -1,4 +1,4 @@
-# app_python_CRIUD
+# app_python_CRUD
 
 
 <h1>CRUD application</h1>

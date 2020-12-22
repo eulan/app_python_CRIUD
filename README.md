@@ -12,7 +12,7 @@
 
 <h2>Objetivo:</h2>
 
-<p>Se desarrolló una aplicación en dende es posible registrar clientes, productos y producir facturas. Las mismas pueden ser editadas, borradas y creadas, al igual que los clientes y productos</p>
+<p>Se desarrolló una aplicación en donde es posible registrar clientes, productos y producir facturas. Las mismas, pueden ser editadas, borradas y creadas, al igual que los clientes y los productos</p>
 
 <h2>API<h2>
 
